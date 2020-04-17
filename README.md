@@ -13,7 +13,7 @@
    - body - {
      "Title":"Trump Total",
      "Link":"https://www.nytimes.com/2020/04/14/us/politics/trump-total-authority-claim.html",
-     "Publisher":"Unknown"
+     "publisher":"Unknown"
      }
 
 2. Delete a bookmark (DELETE)
@@ -32,7 +32,7 @@
     - Ex. - https://nayanpatilassignment.herokuapp.com/api/tags/5e989bf689c2dfdadff00295
 
 5. Add a Tag to a Bookmark (PATCH)
-    - Link - https://nayanpatilassignment.herokuapp.com/api/bookmarks/:id/addtag
+    - Link - https://nayanpatilassignment.herokuapp.com/api/bookmarks/:bookmarkID/addtag
 
     - Ex. - https://nayanpatilassignment.herokuapp.com/api/bookmarks/5e98b6e1fcc79700249d0e59/addtag
 
@@ -41,8 +41,8 @@
     }
 
 6. Remove Tag from certain Bookmark (PATCH)
-    - Link - localhost:5000/api/bookmarks/:id/deltag/:TagId 
-    - Ex. - localhost:5000/api/bookmarks/5e98ab1e920bcc0ade68888e/deltag/5e989c0589c2dfdadff00296
+    - Link - https://nayanpatilassignment.herokuapp.com/api/bookmarks/:bookmarkID/deltag/:TagId 
+    - Ex. - https://nayanpatilassignment.herokuapp.com/api/bookmarks/5e98ab1e920bcc0ade68888e/deltag/5e989c0589c2dfdadff00296
 
 7. Retrieve all tags (GET)
     - Link - https://nayanpatilassignment.herokuapp.com/api/tags
