@@ -47,7 +47,7 @@ router.post("/bookmarks", (req, res, next) => {
 router.patch("/bookmarks/:bookmarkID/addtag", (req, res, next) => {
   tagmodel.count(
     {
-      _id: req.params.tag,
+      _id: req.body.TagId,
     },
     function (err, count) {
       if (count > 0) {
