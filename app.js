@@ -32,6 +32,6 @@ app.use("/api", TagsRoute);
 
 app.use(express.json());
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log("server is listening on PORT " + process.env.PORT || 5000);
 });

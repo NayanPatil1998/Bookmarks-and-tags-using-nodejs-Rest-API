@@ -45,7 +45,7 @@ router.post("/bookmarks", (req, res, next) => {
 });
 
 router.patch("/bookmarks/:bookmarkID/addtag", (req, res, next) => {
-  tagmodel.count(
+  tagmodel.countDocuments(
     {
       _id: req.body.TagId,
     },
@@ -55,7 +55,8 @@ router.patch("/bookmarks/:bookmarkID/addtag", (req, res, next) => {
           model
             .updateOne(
               { _id: req.params.bookmarkID },
-              { $push: { Tags: req.body.TagId } }
+              { $push: { Tags: req.body.TagId } },
+              {TimeUpdated: Date.now()}
             )
             .then((result) => {
               console.log(result);
@@ -73,17 +74,18 @@ router.patch("/bookmarks/:bookmarkID/addtag", (req, res, next) => {
 });
 
 router.patch("/bookmarks/:bookmarkID/deltag/:TagId", (req, res, next) => {
-  tagmodel.count(
+  tagmodel.countDocuments(
     {
-      _id: req.params.tag,
+      _id: req.params.TagId,
     },
     function (err, count) {
       if (count > 0) {
         try {
           model
-            .update(
+            .updateOne(
               { _id: req.params.bookmarkID },
-              { $pull: { Tags: req.params.tag } }
+              { $pull: { Tags: req.params.TagId } },
+              {TimeUpdated: Date.now()}
             )
             .then((result) => {
               console.log(result);
